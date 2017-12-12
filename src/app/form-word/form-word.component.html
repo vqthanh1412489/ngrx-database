@@ -1,0 +1,7 @@
+<div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="formAddWord">
+        <input placeholder="Import English" formControlName="en"><br>
+        <input placeholder="Import Vietnamese" formControlName="vn"><br>
+        <button [disabled]="!formAddWord.valid">Add</button>
+    </form>
+</div>
