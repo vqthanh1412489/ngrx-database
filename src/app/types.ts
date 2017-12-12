@@ -1,3 +1,5 @@
+import { wordUpdateReducer } from "./ngrx/wordUpdateReducer";
+
 export interface Word {
     _id: string;
     en: string;
@@ -6,5 +8,8 @@ export interface Word {
 }
 
 export interface WordStore {
-    wordReducer : Word;
+    wordReducer : Word[]
+}
+export interface WordStoreUpdate {
+    wordUpdateReducer : Word
 }

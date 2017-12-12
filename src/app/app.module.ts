@@ -11,6 +11,7 @@ import { ListWordComponent } from './list-word/list-word.component';
 import { FormWordComponent } from './form-word/form-word.component';
 
 import { wordReducer } from './ngrx/wordReducer';
+import { wordUpdateReducer } from './ngrx/wordUpdateReducer';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { wordReducer } from './ngrx/wordReducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ wordReducer }),
+    StoreModule.forRoot({ wordReducer, wordUpdateReducer }),
     HttpModule,
     FormsModule, 
     ReactiveFormsModule

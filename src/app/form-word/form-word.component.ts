@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store'
-
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 import { WordService } from '../word.service';
 import { ADDWORD } from '../ngrx/wordReducer';
-import { Word, WordStore } from '../types';
+import { Word, WordStore, WordStoreUpdate } from '../types';
 
 
 @Component({
@@ -16,10 +16,12 @@ import { Word, WordStore } from '../types';
 })
 export class FormWordComponent implements OnInit {
   formAddWord: FormGroup;
+  word: Observable<Word>;
   constructor(
     private fb: FormBuilder,
     private wordService: WordService,
-    private store: Store<WordStore>
+    private store: Store<WordStore>,
+    private storeUpdate: Store<WordStoreUpdate>
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,9 @@ export class FormWordComponent implements OnInit {
       en: ['', Validators.required],
       vn: ['', Validators.required]
     });
+
+    this.word = this.storeUpdate.select('wordUpdateReducer');
+    console.log(this.word);
   }
 
   onSubmit(){

@@ -14,7 +14,7 @@ import { GETALLWORD } from '../ngrx/wordReducer';
   providers: [WordService]
 })
 export class ListWordComponent implements OnInit {
-  words : Observable<Word>;
+  words : Observable<Word[]>;
   constructor(
     private store: Store<WordStore>,
     private wordService: WordService
